@@ -13,7 +13,7 @@ int check_walls(t_struct *game)
 		{
 			while (x < game->map_width)
 			{
-				if (game->map[y][x] != 'I')
+				if (game->map[y][x] != '1')
 				{
 					printf("Deu bosta nas Walls\n");
 					return (0);
@@ -23,7 +23,7 @@ int check_walls(t_struct *game)
 		}
 		else
 		{
-			if (game->map[y][0] != 'I' || game->map[y][game->map_width - 1] != 'I')
+			if (game->map[y][0] != '1' || game->map[y][game->map_width - 1] != '1')
 			{
 				printf("Deu bosta nas Walls\n");
 				return (0);

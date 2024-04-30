@@ -1,16 +1,19 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <X11/X.h>
-#include <X11/keysym.h>
-#include <mlx.h>
-#include <fcntl.h>
-#include <errno.h>
-#include "get_next_line.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-#ifndef WINDOW_H
-#define WINDOW_H
+# define SIZE 50
+# include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
 
+# include "mlx_linux/mlx.h"
+# include "mlx_linux/mlx_int.h"
+# include <fcntl.h>
+# include <errno.h>
+# include "get_next_line.h"
+ 
 typedef struct t_struct
 {
 	void *mlx_ptr;
