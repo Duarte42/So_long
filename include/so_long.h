@@ -47,4 +47,8 @@ typedef struct t_struct
 int read_map(t_struct *game);
 int copy_map(t_struct *game);
 int check_map(t_struct *game);
+void freemap(char **map);
+int on_destroy(t_struct *data);
+
+
 #endif

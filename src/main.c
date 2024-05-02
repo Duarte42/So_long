@@ -7,14 +7,6 @@
 // #include <X11/X.h>
 // #include <X11/keysym.h>
 
-
-int	on_destroy(t_struct *data)
-{
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	mlx_destroy_display(data->mlx_ptr);
-	free(data->mlx_ptr);
-	exit(0);
-}
 int	on_keypress(int keysym, t_struct *data)
 {
 	(void)data;
@@ -59,8 +51,8 @@ void set_images(t_struct *game)
 	int w;
 	int h;
 
-	w = SIZE * 2;
-	h = SIZE / 2;
+	w = SIZE;
+	h = SIZE;
 
 	game->floor_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "./image/floor.xpm", &w, &h);
 	game->wall_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "./image/wall.xpm", &w, &h);
@@ -95,7 +87,6 @@ void place_images(t_struct *game)
 		y++;
 	}
 }
-
 int	main(void)
 {
 	t_struct so_long;
@@ -104,35 +95,18 @@ int	main(void)
 	read_map(&so_long);
 	copy_map(&so_long);
 	check_map(&so_long);
-	// int i = 0;
-	// while(so_long.map_copy[i])
-	// {
-	// 	printf("line %d = %s", i, so_long.map_copy[i]);
-	// 	i++;
-	// }
-	// i = 0;
-	// printf("\ny = %d\n", so_long.player_y);
-	// printf("x = %d\n", so_long.player_x);
-	//flood_fill(&so_long, so_long.player_y, so_long.player_y);
-	// while (so_long.map_copy[i])
-	// {	
-	// 	printf("line %d = %s", i, so_long.map_copy[i]);
-	// 	i++;
-	// }
 	so_long.mlx_ptr = mlx_init();
 	if(!so_long.mlx_ptr)
 		return(1);
 	so_long.win_ptr = mlx_new_window(so_long.mlx_ptr, 
 					so_long.map_width * SIZE, 
 					so_long.map_height * SIZE, "SO_LONG");
-	printf("\n---------end----------\n");
 	if (!so_long.win_ptr)
 		return(free(so_long.mlx_ptr), 1);
 	set_images(&so_long);
-	place_images(&so_long);
-	//mlx_put_image_to_window(so_long.mlx_ptr, so_long.win_ptr, so_long.wall_ptr, 0, 0);
-	mlx_hook(so_long.win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, &so_long);
-	mlx_hook(so_long.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy, &so_long);
+	place_images(&so_long);;
+	mlx_hook(so_long.win_ptr, KeyRelease, KeyReleaseMask, on_keypress, &so_long);
+	mlx_hook(so_long.win_ptr, DestroyNotify, StructureNotifyMask, on_destroy, &so_long);
 	mlx_loop(so_long.mlx_ptr);
 	return (0);
 
