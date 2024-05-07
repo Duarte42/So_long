@@ -2,6 +2,13 @@
 # define SO_LONG_H
 
 # define SIZE 50
+# define KEY_ESC 65307
+# define ICON_SIZE 40
+# define I 40
+# define KEY_A 97
+# define KEY_W 119
+# define KEY_S 115
+# define KEY_D 100
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
@@ -44,8 +51,9 @@ typedef struct t_struct
 
 } t_struct;
 
-int read_map(t_struct *game);
-int copy_map(t_struct *game);
+int flood_fill(t_struct *game, int y, int x);
+int read_map(t_struct *game, char *map);
+int copy_map(t_struct *game, char *map);
 int check_map(t_struct *game);
 void freemap(char **map);
 int on_destroy(t_struct *data);

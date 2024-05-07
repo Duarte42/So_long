@@ -13,7 +13,7 @@ void freemap(char **map)
     free(map);
 }
 
-void on_destroy(t_struct *data)
+int on_destroy(t_struct *data)
 {
     mlx_destroy_image(data->mlx_ptr, data->floor_ptr);
     mlx_destroy_image(data->mlx_ptr, data->wall_ptr);

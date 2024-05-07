@@ -5,6 +5,8 @@ static int strlen_helper(const char *s1)
     int i;
 
     i = 0;
+    // if (!s1)
+    //     return (NULL);
     while (s1[i] && s1[i] != '\n')
         i++;
     return (i);
@@ -34,14 +36,16 @@ static int strlen_helper(const char *s1)
 //     return (s3);
 // }
 
-int read_map(t_struct *game)
+int read_map(t_struct *game, char *map)
 {
     char *str;
     int str_len;
 
-    game->fd = open("map.ber", O_RDONLY, 0);
+    game->fd = open(map, O_RDONLY, 0);
     game->map_height = 0;
     str = get_next_line(game->fd);
+    if(!str)
+        return (0);
     str_len = strlen_helper(str);
     while (str)
     {
@@ -50,7 +54,7 @@ int read_map(t_struct *game)
         if (str && str_len != strlen_helper(str))
         {
             free(str);
-            printf("NOT A RETANGLE!\n");
+            printf("Error\n");
             close(game->fd);
             return (0);
         }
