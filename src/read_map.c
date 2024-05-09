@@ -1,67 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: duamarqu <duamarqu@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/09 11:12:02 by duamarqu          #+#    #+#             */
+/*   Updated: 2024/05/09 11:56:39 by duamarqu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-static int strlen_helper(const char *s1)
+static int	strlen_helper(const char *s1)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    // if (!s1)
-    //     return (NULL);
-    while (s1[i] && s1[i] != '\n')
-        i++;
-    return (i);
+	i = 0;
+	while (s1[i] && s1[i] != '\n')
+		i++;
+	return (i);
 }
 
-// char *ft_strjoin_2(char const *s1, char const *s2)
-// {
-//     char *s3;
-//     int i;
-//     int k;
-
-//     i = 0;
-//     k = 0;
-//     s3 = malloc(strlen_helper(s1) + strlen_helper(s2) + 1);
-//     if (s3 == NULL)
-//         return (NULL);
-//     while (s1[i])
-//     {
-//         s3[i] = s1[i];
-//         i++;
-//     }
-//     while (s2[k])
-//     {
-//         s3[i++] = s2[k++];
-//     }
-//     s3[i] = '\0';
-//     return (s3);
-// }
-
-int read_map(t_struct *game, char *map)
+int	read_map(t_struct *game, char *map)
 {
-    char *str;
-    int str_len;
+	char	*str;
 
-    game->fd = open(map, O_RDONLY, 0);
-    game->map_height = 0;
-    str = get_next_line(game->fd);
-    if(!str)
-        return (0);
-    str_len = strlen_helper(str);
-    while (str)
-    {
-        free(str);
-        str = get_next_line(game->fd);
-        if (str && str_len != strlen_helper(str))
-        {
-            free(str);
-            printf("Error\n");
-            close(game->fd);
-            return (0);
-        }
-        game->map_height++;
-    }
-    game->map_width = str_len;
-    close(game->fd);
-    free(str);
-    return (1);
+	game->fd = open(map, O_RDONLY, 0);
+	game->map_height = 0;
+	str = get_next_line(game->fd);
+	if (!str)
+		return (0);
+	game->map_width = strlen_helper(str);
+	while (str)
+	{
+		free(str);
+		str = get_next_line(game->fd);
+		if (str && game->map_width != strlen_helper(str))
+		{
+			free(str);
+			printf("Map is not retangle\n");
+			close(game->fd);
+			return (0);
+		}
+		game->map_height++;
+	}
+	close(game->fd);
+	free(str);
+	return (1);
 }

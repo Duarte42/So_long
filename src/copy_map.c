@@ -1,71 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   copy_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: duamarqu <duamarqu@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/08 15:42:43 by duamarqu          #+#    #+#             */
+/*   Updated: 2024/05/08 15:44:31 by duamarqu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-// int dup_map(t_struct *game)
-// {
-//     int y;
-//     int x;
-
-//     y = 0;
-//     x = 0;
-//     game->map_copy = malloc(sizeof(char *) * (game->map_height + 1));
-//     while (game->map[y])
-//     {
-//         game->map_copy[y] = malloc(sizeof(char) * (game->map_width + 1));
-//         while (game->map[y][x])
-//         {
-//             game->map_copy[y][x] = game->map[y][x];
-//             x++;
-//         }
-//         game->map_copy[y][x] = '\0';
-//         x = 0;
-//         y++;
-//     }
-//     game->map_copy[y] = NULL;
-//     return (1);
-// }
-
-int dup_map(t_struct *game, char *map)
+int	dup_map(t_struct *game, char *map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    game->fd = open(map, O_RDONLY, 0);
-    game->map_copy = malloc(sizeof(char *) * (game->map_height + 1));
-    // game->fd = open("map.txt", O_RDONLY, 0);
-    while (i < game->map_height)
-    {
-
-        game->map_copy[i] = get_next_line(game->fd);
-       // printf("game.map.copy[%d] = %s", i, game->map_copy[i]);
-        i++;
-    }
-    // printf("i size = %d\n", game->map_height);
-    game->map_copy[i] = NULL;
-    // printf("game.map[%d] = %s", i, game->map[i]);
-    //(void)dup_map(game);
-    close(game->fd);
-    return (1);
+	i = 0;
+	game->fd = open(map, O_RDONLY, 0);
+	game->map_copy = malloc(sizeof(char *) * (game->map_height + 1));
+	if (!game->map_copy)
+	{
+		printf("fail to allocate for the map_copy\n");
+		return (0);
+	}
+	while (i < game->map_height)
+	{
+		game->map_copy[i] = get_next_line(game->fd);
+		i++;
+	}
+	game->map_copy[i] = NULL;
+	close(game->fd);
+	return (1);
 }
 
-int copy_map(t_struct *game, char *map)
+int	copy_map(t_struct *game, char *map)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    game->fd = open(map, O_RDONLY, 0);
-    game->map = malloc(sizeof(char *) * (game->map_height + 1));
-   // game->fd = open("map.txt", O_RDONLY, 0);
-    while (i < game->map_height)
-    {
-
-        game->map[i] = get_next_line(game->fd);
-        //printf("game.map[%d] = %s", i, game->map[i]);
-        i++;
-    }
-   // printf("i size = %d\n", game->map_height);
-    game->map[i] = NULL;
-    //printf("game.map[%d] = %s", i, game->map[i]);
-    (void)dup_map(game, map);
-    close(game->fd);
-    return (1);
+	i = 0;
+	game->fd = open(map, O_RDONLY, 0);
+	game->map = malloc(sizeof(char *) * (game->map_height + 1));
+	if (!game->map)
+	{
+		printf("fail to allocate for the map\n");
+		return (0);
+	}
+	while (i < game->map_height)
+	{
+		game->map[i] = get_next_line(game->fd);
+		i++;
+	}
+	game->map[i] = NULL;
+	(void)dup_map(game, map);
+	close(game->fd);
+	return (1);
 }
