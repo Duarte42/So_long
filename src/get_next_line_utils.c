@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duamarqu <duamarqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:15:33 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/04/23 15:42:24 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:39:54 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

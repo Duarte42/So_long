@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duamarqu <duamarqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:34:06 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/08 15:38:07 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:36:51 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ typedef struct t_struct
 	int		count_steps;
 	int		player_x;
 	int		player_y;
-	int		x_axis;
-	int		y_axis;
 
 }	t_struct;
 
