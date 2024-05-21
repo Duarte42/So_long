@@ -6,7 +6,7 @@
 /*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:34:06 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/10 13:36:51 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/21 18:11:03 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int		check_walls(t_struct *game);
 int		check_exit(t_struct *game);
 int		check_colective(t_struct *game);
 int		check_player(t_struct *game);
+int		print_string(char *str);
 int		check_char(t_struct *game);
+void	print_step(int i);
 
 #endif

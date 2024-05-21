@@ -6,7 +6,7 @@
 /*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:24:20 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/10 13:40:25 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/21 18:12:14 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	is_collectable(t_struct *data, int y, int x)
 	if (data->player_y != y || data->player_x != x)
 	{
 		data->count_player++;
-		printf("%d\n", data->count_player);
+		print_step(data->count_player);
+		write(1, "\n", 1);
 	}
 }
 

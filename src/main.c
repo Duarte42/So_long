@@ -6,7 +6,7 @@
 /*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:45:06 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/10 13:33:41 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/20 19:52:37 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	check_args(int argc, char **argv)
 	i = 0;
 	if (argc != 2)
 	{
-		printf("wrong number of arguments\n");
+		print_string("wrong number of arguments\n");
 		exit(0);
 	}
 	while (argv[1][i])
@@ -52,7 +52,7 @@ void	check_args(int argc, char **argv)
 	i -= 4;
 	if (ft_strcmp(&argv[1][i], ".ber"))
 	{
-		printf("wrong map file \n");
+		print_string("wrong map file \n");
 		exit(0);
 	}
 }

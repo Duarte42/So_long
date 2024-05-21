@@ -6,7 +6,7 @@
 /*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:12:02 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/10 13:40:31 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/21 19:29:42 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	read_map(t_struct *game, char *map)
 	game->map_height = 0;
 	str = get_next_line(game->fd);
 	if (!str)
-		return (0);
+		return (print_string("No map\n") * 0);
 	game->map_width = strlen_helper(str);
 	while (str)
 	{
@@ -39,7 +39,7 @@ int	read_map(t_struct *game, char *map)
 		if (str && game->map_width != strlen_helper(str))
 		{
 			free(str);
-			printf("Map is not retangle\n");
+			print_string("Map is not retangle\n");
 			close(game->fd);
 			return (0);
 		}

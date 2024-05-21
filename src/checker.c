@@ -6,7 +6,7 @@
 /*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:28:06 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/10 13:39:30 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/21 18:19:13 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	check_walls(t_struct *game)
 			while (x < game->map_width)
 			{
 				if (game->map[y][x] != '1')
-					return (printf("WRONG WALLS\n") & 0);
+					return (print_string("Wrong walls\n") & 0);
 				x++;
 			}
 		}
 		else if (game->map[y][0] != '1'
 			|| game->map[y][game->map_width - 1] != '1')
-			return (printf("WRONG WALLS\n") & 0);
+			return (print_string("Wrong wall\n") & 0);
 		y++;
 	}
 	return (1);
