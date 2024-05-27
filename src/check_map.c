@@ -6,7 +6,7 @@
 /*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:38:48 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/10 13:39:19 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:54:17 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	check_map(t_struct *game)
 	if (game->count_collect != game->temp_collect
 		|| game->count_exit != game->temp_exit)
 	{
+		print_string("Flood fill failed!\n");
 		free_maps(game);
 		return (0);
 	}

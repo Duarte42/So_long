@@ -6,7 +6,7 @@
 /*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:42:43 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/10 13:39:38 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/22 13:09:12 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	dup_map(t_struct *game, char *map)
 	game->map_copy = malloc(sizeof(char *) * (game->map_height + 1));
 	if (!game->map_copy)
 	{
-		printf("fail to allocate for the map_copy\n");
+		print_string("fail to allocate for the map_copy\n");
 		return (0);
 	}
 	while (i < game->map_height)
@@ -43,7 +43,7 @@ int	copy_map(t_struct *game, char *map)
 	game->map = malloc(sizeof(char *) * (game->map_height + 1));
 	if (!game->map)
 	{
-		printf("fail to allocate for the map\n");
+		print_string("fail to allocate for the map\n");
 		return (0);
 	}
 	while (i < game->map_height)

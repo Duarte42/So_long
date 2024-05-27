@@ -6,7 +6,7 @@
 /*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:28:06 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/21 18:19:13 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:46:13 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	check_exit(t_struct *game)
 	}
 	if (game->count_exit != 1)
 	{
-		printf("Wrong number of exits\n");
+		print_string("Wrong number of exits\n");
 		return (0);
 	}
 	return (1);
@@ -82,7 +82,7 @@ int	check_colective(t_struct *game)
 	}
 	if (game->count_collect < 1)
 	{
-		printf("No collective\n");
+		print_string("No collective\n");
 		return (0);
 	}
 	return (1);
@@ -111,7 +111,7 @@ int	check_player(t_struct *game)
 		y++;
 	}
 	if (game->count_player != 1)
-		return (printf("Wrong player count\n") && 0);
+		return (print_string("Wrong player count\n") && 0);
 	game->count_player = 0;
 	return (1);
 }
@@ -134,7 +134,7 @@ int	check_char(t_struct *game)
 				game->map[y][x] != 'E' &&
 				game->map[y][x] != '\n')
 			{
-				printf("Wrong char on the map\n");
+				print_string("Wrong char on the map\n");
 				return (0);
 			}
 			x++;

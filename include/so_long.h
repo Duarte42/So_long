@@ -6,7 +6,7 @@
 /*   By: duamarqu <duamarqu@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 15:34:06 by duamarqu          #+#    #+#             */
-/*   Updated: 2024/05/21 18:11:03 by duamarqu         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:50:07 by duamarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-# include "mlx_linux/mlx.h"
-# include "mlx_linux/mlx_int.h"
+#include "minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx_int.h"
 # include <fcntl.h>
 # include <errno.h>
 # include "get_next_line.h"
